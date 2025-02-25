@@ -14,6 +14,9 @@ export default class Subscribe extends BaseModel {
   @column()
   declare status: string
 
+  @column()
+  declare plan: string
+
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
 

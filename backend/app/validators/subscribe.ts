@@ -13,6 +13,7 @@ export const subscribeStoreValidation = vine.compile(
       })
       .transform((date) => DateTime.fromJSDate(date)),
     status: vine.string(),
+    plan: vine.string(),
   })
 )
 
@@ -26,5 +27,6 @@ export const subscribeUpdateValidation = vine.compile(
       })
       .transform((date) => DateTime.fromJSDate(date)),
     status: vine.string(),
+    plan: vine.string(),
   })
 )

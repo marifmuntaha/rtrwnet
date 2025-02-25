@@ -160,7 +160,7 @@ class APICore {
         const userInfo = localStorage.getItem('user')
         if (userInfo) {
             const {token, user} = JSON.parse(userInfo)
-            this.setLoggedInUser({token, ...user, ...modifiedUser})
+            this.setLoggedInUser({token: token, user: user, subscription: modifiedUser})
         }
     }
 

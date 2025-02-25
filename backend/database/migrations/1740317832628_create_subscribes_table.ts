@@ -9,6 +9,7 @@ export default class extends BaseSchema {
       table.integer('user_id').unsigned().references('users.id').onDelete('CASCADE')
       table.date('due')
       table.enum('status', ['1', '2', '3', '4'])
+      table.enum('plan', ['1', '2', '3'])
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

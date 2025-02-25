@@ -8,6 +8,8 @@ import Register from "../pages/auth/register";
 import DeviceCreate from "../pages/device/deviceCreate.jsx";
 import DeviceList from "../pages/device/deviceList.jsx";
 import DeviceUpdate from "../pages/device/deviceUpdate.jsx";
+import Subscription from "../pages/subscription/index.jsx";
+import SubscriptionRoute from "./subscriptionRoute.jsx";
 
 export const router = createBrowserRouter([
     {
@@ -18,21 +20,30 @@ export const router = createBrowserRouter([
                 element: <RootLayout />,
                 children: [
                     {
-                        path: "/",
-                        element: <Dashboard />
+                        path: "/berlangganan",
+                        element: <Subscription />,
                     },
                     {
-                        path: "/perangkat/list",
-                        element: <DeviceList />
-                    },
-                    {
-                        path: "/perangkat/tambah",
-                        element: <DeviceCreate />
-                    },
-                    {
-                        path: "/perangkat/:id/ubah",
-                        element: <DeviceUpdate />
-                    },
+                        element: <SubscriptionRoute/>,
+                        children: [
+                            {
+                                path: "/",
+                                element: <Dashboard />
+                            },
+                            {
+                                path: "/perangkat/list",
+                                element: <DeviceList />
+                            },
+                            {
+                                path: "/perangkat/tambah",
+                                element: <DeviceCreate />
+                            },
+                            {
+                                path: "/perangkat/:id/ubah",
+                                element: <DeviceUpdate />
+                            },
+                        ]
+                    }
                 ]
             }
         ]

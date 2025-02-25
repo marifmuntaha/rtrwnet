@@ -36,7 +36,7 @@ export default class UsersController {
 
   async show({ params, response }: HttpContext) {
     try {
-      const user = await User.findOrFail(params.id)
+      const user = await User.query().preload('subscribe').where({ id: params.id }).first()
       if (user) {
         return response.status(200).json({
           result: user,

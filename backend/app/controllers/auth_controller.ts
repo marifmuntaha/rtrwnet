@@ -2,6 +2,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 import { loginPostValidator, registerPostValidation } from '#validators/auth'
 import User from '#models/user'
 import hash from '@adonisjs/core/services/hash'
+import Subscribe from '#models/subscribe'
 
 export default class AuthController {
   async register({ request, response }: HttpContext) {
@@ -40,6 +41,7 @@ export default class AuthController {
             result: {
               user: user,
               token: await User.accessTokens.create(user),
+              subscription: await Subscribe.findBy('userId', user.id),
             },
           })
         } else {
